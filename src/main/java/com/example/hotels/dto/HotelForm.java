@@ -1,29 +1,24 @@
 package com.example.hotels.dto;
 
 import com.example.hotels.entity.Hotels;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@ToString
+@AllArgsConstructor
 
 public class HotelForm {
+    private Long id;
     private String rooms;
     private String roomstatus;
     private String requestedterm;
 
-    public HotelForm(String rooms, String requestedterm, String roomstatus) {
-        this.rooms = rooms;
-        this.requestedterm = requestedterm;
-        this.roomstatus = roomstatus;
-    }
 
     public Hotels toEntity(){
-        return new Hotels(null,rooms,roomstatus,requestedterm);
+        return new Hotels(id,rooms,roomstatus,requestedterm);
 
     }
 
-    @Override
-    public String toString() {
-        return "HotelForm{" +
-                "rooms='" + rooms + '\'' +
-                ", roomstatus='" + roomstatus + '\'' +
-                ", requestedterm='" + requestedterm + '\'' +
-                '}';
-    }
 }

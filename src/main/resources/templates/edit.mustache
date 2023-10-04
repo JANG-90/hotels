@@ -1,9 +1,11 @@
 {{>layouts/header}}
-<form class="container" action="/create" method="post">
+{{#hotel}}
+<form class="container" action="/list/update" method="post">
+    <input name="id" type="hidden" value="{{id}}">
     <div class="mb-3">
         <div>
             <label class="form-label">객실 선택</label>
-            <select name="rooms" size="5">
+            <select name="rooms" size="5" value="{{rooms}}">
                 <optgroup label="1층">
                     <option value="101호">101호</option>
                     <option value="102호">102호</option>
@@ -24,7 +26,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label">객실 상태</label>
-        <select name="roomstatus" size="5">
+        <select name="roomstatus" size="5" value="{{roomstatus}}">
             <option value="입실">입실</option> <!--check-in-->
             <option value="대실">대실</option> <!--deshil-->
             <option value="퇴실">퇴실</option> <!--check-out-->
@@ -33,9 +35,10 @@
     </div>
     <div class="mb-3">
         <label class="form-label">고객 요청 사항 내용</label>
-        <textarea class="form-control" rows="5" name="requestedterm"></textarea>
+        <textarea class="form-control" rows="5" name="requestedterm">{{requestedterm}}</textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <a href="/list">Back</a>
+    <a href="/list/{{id}}">Back</a>
 </form>
+{{/hotel}}
 {{>layouts/footer}}
