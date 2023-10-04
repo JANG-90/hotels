@@ -1,0 +1,22 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">NO</th>
+        <th scope="col">객실 번호</th>
+        <th scope="col">객실 상태</th>
+        <th scope="col">고객 요구 사항</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#hotel}}
+    <tr>
+        <th>{{id}}</th>
+        <td>{{rooms}}</td>
+        <td>{{roomstatus}}</td>
+        <td>{{requestedterm}}</td>
+    </tr>
+    {{/hotel}}
+    </tbody>
+</table>
+{{>layouts/footer}}
