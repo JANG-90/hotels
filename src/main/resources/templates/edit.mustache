@@ -1,44 +1,22 @@
 {{>layouts/header}}
 {{#hotel}}
-<form class="container" action="/list/update" method="post">
-    <input name="id" type="hidden" value="{{id}}">
-    <div class="mb-3">
-        <div>
-            <label class="form-label">객실 선택</label>
-            <select name="rooms" size="5" value="{{rooms}}">
-                <optgroup label="1층">
-                    <option value="101호">101호</option>
-                    <option value="102호">102호</option>
-                    <option value="103호">103호</option>
-                </optgroup>
-                <optgroup label="2층">
-                    <option value="201호">201호</option>
-                    <option value="202호">202호</option>
-                    <option value="203호">203호</option>
-                </optgroup>
-                <optgroup label="3층">
-                    <option value="301호">301호</option>
-                    <option value="302호">302호</option>
-                    <option value="303호">303호</option>
-                </optgroup>
-            </select>
+    <form class="container" action="/list/update" method="post">
+        <input name="id" type="hidden" value="{{id}}">
+        <div class="mb-3">
+            <label class="form-label">객실 번호</label>
+            <input type="text" class="form-control" name="rooms" value="{{rooms}}">
         </div>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">객실 상태</label>
-        <select name="roomstatus" size="5" value="{{roomstatus}}">
-            <option value="입실">입실</option> <!--check-in-->
-            <option value="대실">대실</option> <!--deshil-->
-            <option value="퇴실">퇴실</option> <!--check-out-->
-            <option value="예약">예약</option> <!--Reservation-->
-        </select>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">고객 요청 사항 내용</label>
-        <textarea class="form-control" rows="5" name="requestedterm">{{requestedterm}}</textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <a href="/list/{{id}}">Back</a>
-</form>
+        <div class="mb-3">
+            <label class="form-label">객실 상태</label>
+            <input type="text" class="form-control" name="roomstatus" value="{{roomstatus}}">
+        </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">고객 요청 사항 내용</label>
+            <textarea class="form-control" rows="5" name="requestedterm">{{requestedterm}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/list/{{id}}">리스트로 돌아가기</a>
+    </form>
 {{/hotel}}
 {{>layouts/footer}}

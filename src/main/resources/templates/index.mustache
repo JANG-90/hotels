@@ -1,23 +1,43 @@
 {{>layouts/header}}
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">NO</th>
-        <th scope="col">객실 번호</th>
-        <th scope="col">객실 상태</th>
-        <th scope="col">고객 요구 사항</th>
-    </tr>
-    </thead>
-    <tbody>
-    {{#hotellist}}
-        <tr>
-            <th>{{id}}</th>
-            <td><a href="/list/{{id}}">{{rooms}}</a></td>
-            <td>{{roomstatus}}</td>
-            <td>{{requestedterm}}</td>
-        </tr>
-    {{/hotellist}}
-    </tbody>
-</table>
-<a href="/owner">New owner</a>
+<style>
+    .btn btn-primary {
+        margin-bottom: 20px; /* 20px의 마진을 설정하여 간격 생성 */
+    }
+    .pp{
+    margin-top: 40px; /* 20px의 마진을 설정하여 간격 생성 */
+    }
+
+
+</style>
+<div class="container">
+    <div class="row">
+        <a href="/owner" class="btn btn-success">신규고객</a>
+        {{#hotellist}}
+            <div class="col-6">
+                <p class="pp"><h2 style="text-align: center;">객실 정보</h2></p>
+                <div class="card">
+                    <div class="card-header" style="text-align: center;">
+                        {{rooms}}
+                    </div>
+                    <table class="table" style="text-align: center;">
+                        <thead>
+                        <tr>
+                            <th scope="col">객실 상태</th>
+                            <th scope="col">고객 요구 사항</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{roomstatus}}</td>
+                            <td>{{requestedterm}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="/list/{{id}}" class="btn btn-primary">상세</a>
+
+            </div>
+        {{/hotellist}}
+    </div>
+</div>
 {{>layouts/footer}}
