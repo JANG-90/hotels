@@ -65,21 +65,26 @@ public class HotelController {
 
     @PostMapping("list/update")
     public String update(HotelForm form) {
-        Hotels hotelEntity = form.toEntity();
-        Hotels target = hotelsRepository.findById(hotelEntity.getId()).orElse(null);
-        if (target != null) {
-            hotelsRepository.save(hotelEntity);
-        }
-        return "redirect:" + hotelEntity.getId();
+//        Hotels hotelEntity = form.toEntity();
+//        Hotels target = hotelsRepository.findById(hotelEntity.getId()).orElse(null);
+//        if (target != null) {
+//            hotelsRepository.save(hotelEntity);
+//        }
+//        return "redirect:" + hotelEntity.getId();
+        service.update(form);
+        return "redirect:/list/" + form.getId();
     }
 
     @GetMapping("list/{id}/delete")
     public String delete(@PathVariable Long id, RedirectAttributes ppt) {
-        Hotels target = hotelsRepository.findById(id).orElse(null);
-        if (target != null) {
-            hotelsRepository.delete(target);
-            ppt.addFlashAttribute("msg", "삭제되었습니다");
-        }
+//        Hotels target = hotelsRepository.findById(id).orElse(null);
+//        if (target != null) {
+//            hotelsRepository.delete(target);
+//            ppt.addFlashAttribute("msg", "삭제되었습니다");
+//        }
+//        return "redirect:/list";
+        service.delete(id);
+        ppt.addFlashAttribute("msg", "삭제되었습니다");
         return "redirect:/list";
     }
 }

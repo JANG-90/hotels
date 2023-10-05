@@ -36,6 +36,22 @@ public class HotelService {
         return hotelsRepository.findById(id).orElse(null);
     }
 
+    public void update(HotelForm form) {
+        Hotels hotelEntity = form.toEntity();
+        Hotels target = hotelsRepository.findById(hotelEntity.getId()).orElse(null);
+        if (target != null) {
+            hotelsRepository.save(hotelEntity);
+        }
+    }
+
+    public void delete(Long id){
+        Hotels target = hotelsRepository.findById(id).orElse(null);
+        if (target != null) {
+            hotelsRepository.delete(target);
+        }
+
+    }
+
 }
 
 
